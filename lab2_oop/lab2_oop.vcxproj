@@ -127,14 +127,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="emp_pareto_class.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mixture_pareto_class.cpp" />
     <ClCompile Include="std_pareto_class.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="emp_pareto_class.h" />
     <ClInclude Include="mixture_pareto_class.h" />
     <ClInclude Include="std_pareto_class.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="atributes.txt" />
+    <Text Include="emp_output.txt" />
+    <Text Include="mixtr_attr.txt" />
+    <Text Include="mixture_xy_output.txt" />
+    <Text Include="std_xy_output.txt" />
+    <Text Include="test1.txt" />
+    <Text Include="test2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

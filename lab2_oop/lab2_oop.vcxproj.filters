@@ -27,6 +27,9 @@
     <ClCompile Include="mixture_pareto_class.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="emp_pareto_class.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="std_pareto_class.h">
@@ -35,5 +38,31 @@
     <ClInclude Include="mixture_pareto_class.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="emp_pareto_class.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="mixtr_attr.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="atributes.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="mixture_xy_output.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="std_xy_output.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="emp_output.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="test1.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="test2.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -17,7 +17,7 @@ double Pareto::GetLambda() const {
 
 void Pareto::SetForm(double form_param) {
 	if (form_param <= 1) {
-		throw std::range_error("The new data is incorrect.Form parameter should be >1\n");
+		throw 1;
 	}
 	else {
 		v = form_param;
@@ -30,7 +30,7 @@ void Pareto::SetMu(double mu_param) {
 
 void Pareto::SetLambda(double lambda_param) {
 	if (lambda_param <= 0) {
-		throw std::range_error("The new data is incorrect. Lambda parameter should be positive\n");
+		throw 1;
 	}
 	else {
 		lambda = lambda_param;
@@ -152,9 +152,10 @@ void Pareto::xy_output(int n) {//генерация случайных величин размера n
 	file.close();
 }
 
-Pareto::Pareto(double form_param, double mu_param, double lambda_param) {
+Pareto::Pareto(double form_param, double mu_param, double lambda_param):
+	v(form_param > 0 ? form_param : throw 1), mu(mu_param), lambda(lambda_param > 0 ? lambda_param : throw 1){
 	//конструктор класса с заданием параметров
-	v = form_param;
+	/*v = form_param;
 	mu = mu_param;
 	lambda = lambda_param;
 	if (v <= 1 || lambda <= 0) {
@@ -163,14 +164,14 @@ Pareto::Pareto(double form_param, double mu_param, double lambda_param) {
 	else {
 		std::cout << "Object has been generated succesfully" << std::endl;
 		std::cout << "Params at moment: " << "form: " << v << " mu: " << mu << " lambda: " << lambda << std::endl;
-	}
+	}*/
 }
 
 Pareto::Pareto(std::string file) {//создание объекта с помощью чтения арибутов из файла
 	std::ifstream input;
 	input.open(file);
 	if (!input) {
-		throw std::runtime_error("Can't find file");
+		throw std::runtime_error("Ошибка при поиске файла");
 	};
 
 	if (!file.empty()) {
@@ -184,7 +185,7 @@ Pareto::Pareto(std::string file) {//создание объекта с помощью чтения арибутов и
 			input >> buf;
 			//std::cout << buf;
 			if (!input) {
-				throw std::runtime_error("Incorrect data");
+				throw std::runtime_error("Неправильные данные");
 			}
 			else {
 				buffer.push_back(buf);
@@ -194,17 +195,14 @@ Pareto::Pareto(std::string file) {//создание объекта с помощью чтения арибутов и
 		mu = buffer[1];
 		lambda = buffer[2];
 		if (v <= 1 || lambda <= 0) {
-			throw std::range_error("Form parameter should be > 1 and lambda parameter should be positive");
+			throw 1;
 		}
 
 
 	}
 	else {
-		throw std::runtime_error("File is empty");
-	}
-
-	std::cout << "Object has been generated succesfully" << std::endl;
-	std::cout << "Params at moment: " << "form: " << v << " mu: " << mu << " lambda: " << lambda << std::endl;
+		throw std::runtime_error("Файл пустой");
+	};
 
 }
 
@@ -216,7 +214,7 @@ void Pareto::save_atr(std::string file) {//сохранение атрибутов в файл
 	buffer.push_back(this->GetMu());
 	buffer.push_back(this->GetLambda());
 	if (!output) {
-		throw std::runtime_error("Can't find file");
+		throw std::runtime_error("Невозможно найти файл");
 	};
 	for (int i = 0; i < 3; i++) {
 		output << buffer[i] << " ";
@@ -225,8 +223,4 @@ void Pareto::save_atr(std::string file) {//сохранение атрибутов в файл
 
 }
 
-Pareto::Pareto() {//параметры выбранные по умолчанию
-	v = 3.3;
-	mu = 0;
-	lambda = 1;
-}
+Pareto::Pareto() :v(3.3), mu(0), lambda(1) {}//параметры выбранные по умолчанию

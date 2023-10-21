@@ -21,15 +21,15 @@ private:
 	double normal_distribution_function(double form_param);
 	double normal_distribution_plotnost(double x);
 	double k_koef();
-	double pareto_modeling();
-	std::vector<double> generate_x_std(int n);
+	//double pareto_modeling();
+	//std::vector<double> generate_x_std(int n);
 	std::vector<std::pair<double, double>> generate_xy_std(int n);
 
 public:
 	Pareto(double form_param, double mu_param, double lambda_param);//конструктор класса с заданием параметров
 	Pareto(std::string file);//конструктор с вводом из файла
 	Pareto();//конструктор с параметрами по умолчанию
-		
+	std::vector<double> generate_x_std(int n);
 
 
 	//блок работающий с атрибутами
@@ -40,6 +40,7 @@ public:
 	void SetMu(double mu_param);
 	void SetLambda(double lambda_param);
 	//вычисление распределения в точке
+	double pareto_modeling();
 	double pareto_std_distribution(double x);
 	void test();
 	double math_expect();
