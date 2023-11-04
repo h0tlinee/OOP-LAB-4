@@ -141,6 +141,7 @@
   <ItemGroup>
     <Text Include="atributes.txt" />
     <Text Include="emp_output.txt" />
+    <Text Include="emp_selection.txt" />
     <Text Include="mixtr_attr.txt" />
     <Text Include="mixture_xy_output.txt" />
     <Text Include="std_xy_output.txt" />

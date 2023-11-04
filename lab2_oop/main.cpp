@@ -1,13 +1,13 @@
 #include "std_pareto_class.h"
-#include "mixture_pareto_class.h"
+#include "mixture_pareto_class.cpp"
 #include "emp_pareto_class.h"
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp" 
 
 using namespace std;
-void calculate(Pareto& std);
-void calculate(mixture& mix);
-void calculate(Empirical& emp);
+//void calculate(Pareto& std);
+//void calculate(mixture& mix);
+//void calculate(Empirical& emp);
 
 int run_unit_tests(int argc, char** argv) {
 	int result = Catch::Session().run(argc, argv);
@@ -15,7 +15,7 @@ int run_unit_tests(int argc, char** argv) {
 }
 
 
-void std_menu() {
+/*void std_menu() {
 	int input=0;
 	double v, mu, lambda;
 	Pareto std;
@@ -262,8 +262,8 @@ void menu() {
 		case 4:
 			return;
 		}
-	}
-}
+	}*/
+//}
 
 
 
@@ -273,38 +273,8 @@ void menu() {
 int main(int argc, char** argv) {
 	setlocale(LC_ALL, "Russian");
 	try {
-		/*ofstream file;
-		Pareto std1(3.3, 2, 2);
-		Pareto std2(3.3, -2, 2);
-		mixture mix(std1, std2, 0.5);
-		mix.xy_output(2000);
-		Empirical emp(mix, 2000, 1);
-		file.open("emp_output.txt");
-		for (int i = 0; i < emp.GetSize(); i++) {
-			file << emp.GetSelection()[i] << "\t" << emp.density(emp.GetSelection()[i]) << endl;
-		}
-		file.close();*/
-		//menu();
-		/*ofstream file1,file2;
-
-		Pareto std(3.3, 2, 1);
-		Empirical emp(std,2000,1);
-		file1.open("test1.txt");
-		for (int i = 0; i < emp.GetSize(); i++) {
-			file1 << emp.GetSelection()[i] << "\t" << emp.density(emp.GetSelection()[i]) << endl;
-		}
-		file1.close();
-
-		Empirical emp1(emp, 2000, 1);
-		file2.open("test2.txt");
-		for (int i = 0; i < emp1.GetSize(); i++) {
-			file2 << emp1.GetSelection()[i] << "\t" << emp1.density(emp1.GetSelection()[i]) << endl;
-		}
-		file2.close();*/
-
 		
 		
-
 		
 		
 
@@ -312,14 +282,16 @@ int main(int argc, char** argv) {
 		
 		
 	}
-	catch (runtime_error ex) {
-		cout << "Ошибка при работе с файлами: " << ex.what();
-	}
-	catch (int error) {
+	catch (int error){
+		if (error == 0){
+			cout << "Ошибка при работе с файлами: "<<endl;
+		}
 		if (error == 1) {
 			cout << "Параметры распределения указаны неккоректно" << endl;
 		}
+		
 	}
-	run_unit_tests(argc, argv);
+
+	//run_unit_tests(argc, argv);
 
 }
